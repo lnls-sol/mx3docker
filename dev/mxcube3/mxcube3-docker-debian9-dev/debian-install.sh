@@ -7,7 +7,11 @@ system_has() {
 }
 
 mxcube_source() {
-  echo "https://github.com/mxcube/mxcube3.git"
+  echo "https://github.com/lnls-sol/mxcube3.git"
+}
+
+mxcube_branch() {
+  echo "lnls-manaca-rev"
 }
 
 mxcube_install_dir() {
@@ -20,14 +24,14 @@ mxcube_download() {
     exit 1
   fi
 
-  command git clone "$(mxcube_source)" "$(mxcube_install_dir)" || {
+  command git clone "$(mxcube_source)" --branch "$(mxcube_branch)" "$(mxcube_install_dir)" || {
     echo >&2 'Failed to clone mxcube-3 repo. Please report this !'
     exit 2
   }
 
   command cd "$(mxcube_install_dir)"
   command git submodule init
-  command git submodule update
+  command git submodule update --remote
 }
 
 install_debian_deps() {
