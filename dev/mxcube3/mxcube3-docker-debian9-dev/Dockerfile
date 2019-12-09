@@ -35,3 +35,18 @@ COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
 EXPOSE 8090 8081 5901
+
+# LNLS/Sirius dependencies
+
+# pip
+RUN pip3 install pyepics ipython
+
+# Set max bytes for Epics caget/caput
+RUN echo "export EPICS_CA_MAX_ARRAY_BYTES=20000000" >> /etc/bash.bashrc
+
+# Add IPs of motor and camera iocs servers
+RUN echo "export EPICS_CA_ADDR_LIST=\"10.2.48.42 10.2.48.40\"" >> /etc/bash.bashrc
+
+## mxcube3 and HO paths
+RUN echo "export PYTHONPATH=\$PYTHONPATH:/opt/mxcube3/" >> /etc/bash.bashrc
+RUN echo "export PYTHONPATH=\$PYTHONPATH:/opt/mxcube3/mxcube3/" >> /etc/bash.bashrc
