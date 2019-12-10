@@ -26,13 +26,16 @@ RUN \
 
 WORKDIR /opt
 
-# Install MXCuBE3
+# Install MXCuBE3 dependencies
 COPY debian-install.sh /opt/debian-install.sh
-RUN cd /opt && chmod +x debian-install.sh && ./debian-install.sh
+RUN cd /opt && chmod +x debian-install.sh
+RUN . /opt/debian-install.sh && install_debian_deps
+RUN cd /opt && wget https://raw.githubusercontent.com/mxcube/mxcube3/master/requirements.txt
+RUN . /opt/debian-install.sh && install_python_deps
 
 COPY mxcube /usr/local/bin/
 COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+COPY start-mxcube-server.sh /usr/local/bin/
 
 EXPOSE 8090 8081 5901
 

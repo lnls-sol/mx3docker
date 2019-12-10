@@ -76,9 +76,9 @@ install_node() {
   command npm install
 }
 
-mxcube_download
-install_debian_deps
-install_python_deps
-install_node
+#mxcube_download
+#install_debian_deps
+#install_python_deps
+#install_node
 
 } # this ensures the entire script is downloaded #
