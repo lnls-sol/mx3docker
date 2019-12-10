@@ -32,6 +32,7 @@ RUN cd /opt && chmod +x debian-install.sh
 RUN . /opt/debian-install.sh && install_debian_deps
 RUN cd /opt && wget https://raw.githubusercontent.com/mxcube/mxcube3/master/requirements.txt
 RUN . /opt/debian-install.sh && install_python_deps
+RUN . /opt/debian-install.sh && install_node
 
 COPY mxcube /usr/local/bin/
 COPY docker-entrypoint.sh /usr/local/bin/

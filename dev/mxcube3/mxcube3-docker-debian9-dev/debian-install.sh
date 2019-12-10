@@ -71,7 +71,9 @@ install_node() {
   source "$NVM_DIR/nvm.sh"
   source "$NVM_DIR/bash_completion"
   nvm install --lts
+}
 
+npm_install() {
   command npm install imagemin-pngquant@5.0.1 --save
   command npm install
 }

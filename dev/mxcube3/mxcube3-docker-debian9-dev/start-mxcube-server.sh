@@ -2,5 +2,5 @@
 
 # Start mxcube server
 cd /opt/mxcube3/
-. /opt/debian-install.sh && install_node
+. /opt/debian-install.sh && npm_install
 docker-entrypoint.sh
