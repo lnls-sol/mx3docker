@@ -49,7 +49,7 @@ RUN pip3 install pyepics ipython
 RUN echo "export EPICS_CA_MAX_ARRAY_BYTES=20000000" >> /etc/bash.bashrc
 
 # Add IPs of motor and camera iocs servers
-RUN echo "export EPICS_CA_ADDR_LIST=\"10.2.48.42 10.2.48.40\"" >> /etc/bash.bashrc
+RUN echo "export EPICS_CA_ADDR_LIST=\"10.2.48.42 10.2.48.40 10.20.21.55\"" >> /etc/bash.bashrc
 
 ## mxcube3 and HO paths
 RUN echo "export PYTHONPATH=\$PYTHONPATH:/opt/mxcube3/" >> /etc/bash.bashrc
