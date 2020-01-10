@@ -21,17 +21,18 @@ mxcube_install_dir() {
 mxcube_download() {
   if ! system_has git; then
     echo >&2 'You need git, curl, or wget to install MXCuBE'
-    exit 1
+    #exit 1
   fi
 
   command git clone "$(mxcube_source)" --branch "$(mxcube_branch)" "$(mxcube_install_dir)" || {
     echo >&2 'Failed to clone mxcube-3 repo. Please report this !'
-    exit 2
+    #exit 2
   }
 
   command cd "$(mxcube_install_dir)"
   command git submodule init
   command git submodule update --remote
+  command cd ..
 }
 
 install_debian_deps() {
@@ -68,8 +69,8 @@ install_node() {
   # nvm
   command curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
   export NVM_DIR="$HOME/.nvm"
-  source "$NVM_DIR/nvm.sh"
-  source "$NVM_DIR/bash_completion"
+  . "$NVM_DIR/nvm.sh"
+  . "$NVM_DIR/bash_completion"
   nvm install --lts
 }
 
