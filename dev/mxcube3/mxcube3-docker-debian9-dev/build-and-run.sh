@@ -10,7 +10,6 @@ docker build --network=host -t mxcube3-dev .
 # mxcube3 folder will be mounted inside the final container:
 echo "Clone mxcube (if needed)"
 . debian-install.sh && mxcube_download
- cd ..
 
 docker run -p 5901:5901 -p 8090:8090 --network=host -dt \
 -v ${PWD}/mxcube3:/opt/mxcube3/ \
