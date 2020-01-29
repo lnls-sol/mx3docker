@@ -16,6 +16,9 @@ docker run -p 5901:5901 -p 8090:8090 --network=host -dt \
 --name mxcube3-dev \
 mxcube3-dev
 
-# Finally enter container and then start mxcube server:
-#docker exec -it mxcube3-dev bash
-#start-mxcube-server.sh
+echo " "
+echo " "
+echo "Done! Now enter container and start mxcube server with:"
+echo " "
+echo "\$ docker exec -it mxcube3-dev bash"
+echo "\$ start-mxcube-server.sh"
