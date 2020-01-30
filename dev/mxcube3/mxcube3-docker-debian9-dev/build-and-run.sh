@@ -13,6 +13,7 @@ echo "Clone mxcube (if needed)"
 
 docker run -p 5901:5901 -p 8090:8090 --network=host -dt \
 -v ${PWD}/mxcube3:/opt/mxcube3/ \
+-v ${PWD}/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh:rw \
 --name mxcube3-dev \
 mxcube3-dev
 
