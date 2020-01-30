@@ -1,29 +1,20 @@
-# MXCuBE3 Docker Container
+# MXCuBE3 Docker Container (LNLS/Sirius dev version)
 
-Development Docker container for MXCuBE3 based on Debian 9 with a desktop environment (Mate)
-VNC server and some development tools like Emacs and VIM.
+Development Docker container for MXCuBE3 based on Debian 10, aimed at LNLS/Sirius setup.
 
-## Building
+This is based on the [MXCuBE3 upstream container](https://github.com/mxcube/mx3docker/tree/master/dev/mxcube3/mxcube3-docker-debian9-dev), being customized for documenting LNLS/Sirius beamline configurations, as well as for development and test of new features on them.
 
-The docker file can be built by simply issuing:
+The container includes the basic environment (libraries such as Python, EPICs and others), while MXCuBE libraries are mounted on the container, so they can be modified externally with you favorite editor and quickly reloaded for testing.
 
-```
-docker build -t mxcube3-dev .
-```
+## Building and runnig the container
 
-The name of the image will be mxcube3-dev
-
-## Running
-
-After being built the docker file can be executed with:
+The container can be built and run by simply issuing:
 
 ```
-docker run -p 5901:5901 -p 8090:8090 -dt mxcube3-dev
+./build-and-run.sh
 ```
-This container runs the MXCuBE backend in the foreground for easier debugging,
-browsing can be done from either the local system or via VNC.
 
-MXCuBE is installed in /opt/mxcube3
+The name of the image will be mxcube3-dev, as well as the name of the container.
 
 The status can be viewed with:
 
@@ -31,39 +22,24 @@ The status can be viewed with:
 docker ps
 ```
 
-A simple shell can be launched by:
+## Running mxcube3
+
+Launch a shell with:
 
 ```
-docker exec -it <container-id> /bin/bash
+docker exec -it mxcube3-dev bash
 ```
 
-## Connecting to the VNC server
-This docker container comes with a pre-configured desktop enviroment that can be accessed
-by using VNC. Simply connect to *ip:1* and give the password "mxcube"
-
-To get the container id run
-```
-docker ps
-```
-
-To get the container ip address issue:
-```
-docker inspect <container id>
-```
-
-Connect with a VNC client (for isntance vncviewer) PASSWORD IS: mxcube
-```
-vncviewer <ip-address>:1
-```
-
-Chrome can be launched, once connected, from a terminal window, by typing
+Then start mxcube3 with:
 
 ```
-google-chrome --no-sandbox
+./start-mxcube3-server.sh
 ```
 
-Point the browser to localhost:8090 to start using MXCuBE3
+Point the browser to localhost:8090 to start using MXCuBE3.
 
 The test credentials are:
 username: idtest0
 password: 000
+
+## Tips
