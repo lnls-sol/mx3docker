@@ -62,7 +62,8 @@ install_debian_deps() {
 
 install_python_deps() {
   command pip3 install numpy
-  command pip3 install -r requirements.txt
+  # Install requirements got from mxcube3 repo
+  command pip3 install -r requirements-pip3.txt
 }
 
 install_node() {
