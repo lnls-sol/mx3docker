@@ -30,7 +30,7 @@ WORKDIR /opt
 COPY debian-install.sh /opt/debian-install.sh
 RUN cd /opt && chmod +x debian-install.sh
 RUN . /opt/debian-install.sh && install_debian_deps
-RUN cd /opt && wget https://raw.githubusercontent.com/mxcube/mxcube3/master/requirements.txt
+RUN cd /opt && wget https://raw.githubusercontent.com/mxcube/mxcube3/master/requirements-pip3.txt
 RUN . /opt/debian-install.sh && install_python_deps
 RUN . /opt/debian-install.sh && install_node
 
