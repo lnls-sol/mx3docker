@@ -31,7 +31,7 @@ mxcube_download() {
 
   command cd "$(mxcube_install_dir)"
   command git submodule init
-  command git submodule update --remote
+  command git submodule update
   command cd ..
 }
 
