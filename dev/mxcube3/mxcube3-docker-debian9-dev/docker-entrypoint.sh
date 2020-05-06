@@ -8,10 +8,11 @@ vncserver :1 -geometry 1680x1050 -depth 24 &
 
 cd /opt/mxcube3
 
-export NVM_DIR="$HOME/.nvm"
-source "$NVM_DIR/nvm.sh"
-source "$NVM_DIR/bash_completion"
+#export NVM_DIR="$HOME/.nvm"
+#source "$NVM_DIR/nvm.sh"
+#source "$NVM_DIR/bash_completion"
 
+npm install
 npm start&
 redis-server&
 
