@@ -11,7 +11,7 @@ mxcube_source() {
 }
 
 mxcube_branch() {
-  echo "lnls-manaca-rev"
+  echo "lnls"
 }
 
 mxcube_install_dir() {
@@ -76,8 +76,14 @@ install_node() {
 }
 
 npm_install() {
-  command npm install imagemin-pngquant@5.0.1 --save
+  #command npm install imagemin-pngquant@5.0.1 --save
   command npm install
+}
+
+install_conda_req() {
+  command conda update -n base -c defaults conda
+  command cd /opt/
+  command conda env create -f conda-environment.yml
 }
 
 #mxcube_download

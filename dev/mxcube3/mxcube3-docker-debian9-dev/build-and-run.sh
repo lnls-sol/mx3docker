@@ -8,6 +8,7 @@ docker build --network=host -t mxcube3-dev-lnls .
 
 # The following lines download mxcube3 source (if not present locally yet).
 # mxcube3 folder will be mounted inside the final container:
+echo " "
 echo "Clone mxcube (if needed)"
 . debian-install.sh && mxcube_download
 
