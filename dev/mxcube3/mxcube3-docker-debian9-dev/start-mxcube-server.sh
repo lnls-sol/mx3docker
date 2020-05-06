@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-# Start mxcube server
-#cd /opt/mxcube3/
-#. /opt/debian-install.sh && npm_install
-# TODO: test moving npm install to here
+# Enable conda for this shell
+. /opt/conda/etc/profile.d/conda.sh
+conda activate mxcube
+
+#vncserver :1 -geometry 1680x1050 -depth 24 &
+
+cd /opt/mxcube3
+
+npm install
+
 docker-entrypoint.sh
