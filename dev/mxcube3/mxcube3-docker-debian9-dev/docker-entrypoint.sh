@@ -19,7 +19,8 @@ python3 mxcube3-server -w -r test/HardwareObjectsMockup.xml --log-file mxcube.lo
 #python3 mxcube3-server -r mxcube3/HardwareRepository/configuration/lnls_sol --log-file mxcube_lnls_sol.log&
 
 # mnc
-#export EPICS_CA_ADDR_LIST=\"10.2.48.42 10.2.48.40 10.20.21.55\"
+#export BZOOM_IOC_SERVER=10.31.74.41
+#export EPICS_CA_ADDR_LIST=$BZOOM_IOC_SERVER
 #python3 mxcube3-server -r mxcube3/HardwareRepository/configuration/lnls_manaca --log-file mxcube_lnls_manaca.log&
 
 wait
