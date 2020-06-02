@@ -10,4 +10,4 @@ cd /opt/mxcube3
 
 npm install
 
-docker-entrypoint.sh
+docker-entrypoint.sh 2>&1 | tee /opt/out.txt
