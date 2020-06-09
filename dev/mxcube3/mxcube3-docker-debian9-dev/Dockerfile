@@ -68,3 +68,27 @@ RUN echo "export EPICS_CA_MAX_ARRAY_BYTES=20000000" >> /etc/bash.bashrc
 ## mxcube3 and HO paths
 RUN echo "export PYTHONPATH=\$PYTHONPATH:/opt/mxcube3/" >> /etc/bash.bashrc
 RUN echo "export PYTHONPATH=\$PYTHONPATH:/opt/mxcube3/mxcube3/" >> /etc/bash.bashrc
+
+# LNLS NFS mounts
+
+RUN apt-get install nfs-common -y
+
+RUN mkdir /usr/local/sol-nfs
+RUN mkdir /usr/local/setup-bl
+RUN mkdir /usr/local/sol
+
+RUN chmod +w /etc/fstab
+RUN sh -c "echo '10.10.10.13:/usr/local/sol-nfs   /usr/local/sol-nfs     nfs defaults 0 0' >> /etc/fstab"
+RUN sh -c "echo '10.10.10.13:/usr/local/setup-bl   /usr/local/setup-bl     nfs defaults 0 0' >> /etc/fstab"
+RUN sh -c "echo '10.10.10.13:/usr/local/setup-bl/SOL/docker-gui/sol /usr/local/sol     nfs defaults 0 0' >> /etc/fstab"
+
+# LNLS scan scripts
+
+COPY lnls-scripts/install_py4syn.sh /root/
+RUN /root/install_py4syn.sh
+
+COPY lnls-scripts/config_sol_widgets.sh /root/
+RUN /root/config_sol_widgets.sh
+
+COPY lnls-scripts/config_scan_utils.sh /root/
+RUN /root/config_scan_utils.sh

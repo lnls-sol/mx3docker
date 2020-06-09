@@ -13,7 +13,7 @@ npm start&
 redis-server&
 
 # mock
-python3 mxcube3-server -w -r test/HardwareObjectsMockup.xml --log-file mxcube.log&
+python3 mxcube3-server -r test/HardwareObjectsMockup.xml --log-file mxcube.log&
 
 # sol
 #python3 mxcube3-server -r mxcube3/HardwareRepository/configuration/lnls_sol --log-file mxcube_lnls_sol.log&
