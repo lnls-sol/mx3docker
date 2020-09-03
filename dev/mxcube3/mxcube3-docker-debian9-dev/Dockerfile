@@ -50,6 +50,7 @@ RUN . /opt/debian-install.sh && install_conda_req
 COPY mxcube /usr/local/bin/
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY start-mxcube-server.sh /usr/local/bin/
+COPY stop-mxcube.sh /usr/local/bin/
 
 EXPOSE 8090 8081 5901
 
