@@ -93,3 +93,6 @@ RUN /root/config_sol_widgets.sh
 
 COPY lnls-scripts/config_scan_utils.sh /root/
 RUN /root/config_scan_utils.sh
+
+# Set timezone
+RUN ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
