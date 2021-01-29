@@ -81,7 +81,7 @@ npm_install() {
 }
 
 install_conda_req() {
-  command conda update -n base -c defaults conda
+  command conda update -y -n base -c defaults conda
   command cd /opt/
   command conda env create -f conda-environment.yml
 }

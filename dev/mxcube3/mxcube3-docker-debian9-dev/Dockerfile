@@ -11,19 +11,19 @@ ENV USER root
 
 # Install system paackges
 RUN apt-get update --fix-missing && apt-get -y upgrade && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y mate-desktop-environment-core && \
-    apt-get install -y apt-utils curl git sudo build-essential wget \
-    tightvncserver emacs xemacs21 vim procps && \
+    DEBIAN_FRONTEND=noninteractive && \
+    apt-get install -y apt-utils curl git build-essential wget \
+    vim procps && \
     apt-get install -y bzip2 ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1
 
-RUN mkdir /root/.vnc && echo "mxcube" | vncpasswd -f > /root/.vnc/passwd && chmod 600 /root/.vnc/passwd
+#RUN mkdir /root/.vnc && echo "mxcube" | vncpasswd -f > /root/.vnc/passwd && chmod 600 /root/.vnc/passwd
 RUN touch /root/.Xresources && touch /root/.Xauthority
 
-RUN \
-  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list && \
-  apt-get update && \
-  apt-get install -y google-chrome-stable
+#RUN \
+#  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+#  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list && \
+#  apt-get update && \
+#  apt-get install -y google-chrome-stable
 
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
   /bin/bash ~/miniconda.sh -b -p /opt/conda && \
