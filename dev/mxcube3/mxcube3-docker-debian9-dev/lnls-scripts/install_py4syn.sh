@@ -17,6 +17,6 @@ cd /tmp/py4syn
 # Enable conda for this shell
 . /opt/conda/etc/profile.d/conda.sh
 conda activate mxcube
-conda install -n mxcube scipy numpy matplotlib h5py pyaml docopt pyxdg qtpy pyqtgraph
-conda install -n mxcube -c pydm-tag -c conda-forge pydm
+conda install -y -n mxcube scipy numpy matplotlib h5py pyaml docopt pyxdg qtpy pyqtgraph
+conda install -y -n mxcube -c pydm-tag -c conda-forge pydm
 python3 setup.py install

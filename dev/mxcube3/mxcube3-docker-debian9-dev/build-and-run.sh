@@ -27,8 +27,8 @@ fi
 
 podman run -p 5901:5901 -p 8090:8090 --network=host -dt \
 -v ${PWD}/mxcube3:/opt/mxcube3/ \
--v ${PWD}/podman-entrypoint.sh:/usr/local/bin/podman-entrypoint.sh:rw \
--v /ddn/:/ddn/:rw \
+-v ${PWD}/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh:rw \
+-v $HOME:/home/${USER}/work \
 --privileged \
 --name mxcube3-dev-lnls \
 mxcube3-dev-lnls

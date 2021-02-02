@@ -42,7 +42,7 @@ WORKDIR /opt
 COPY debian-install.sh /opt/debian-install.sh
 RUN cd /opt && chmod +x debian-install.sh
 #RUN . /opt/debian-install.sh && install_debian_deps
-RUN cd /opt && wget https://raw.githubusercontent.com/lnls-sol/mxcube3/lnls/conda-environment.yml
+RUN ls && cd /opt && wget https://raw.githubusercontent.com/lnls-sol/mxcube3/lnls/conda-environment.yml
 RUN . /opt/debian-install.sh && install_conda_req
 #RUN . /opt/debian-install.sh && install_python_deps
 #RUN . /opt/debian-install.sh && install_node
@@ -57,8 +57,8 @@ EXPOSE 8090 8081 5901
 # LNLS/Sirius dependencies
 
 # conda
-RUN conda install -n mxcube -c conda-forge pyepics
-RUN conda install -n mxcube ipython
+RUN conda install -y -n mxcube -c conda-forge pyepics
+RUN conda install -y -n mxcube ipython
 
 
 # Set max bytes for Epics caget/caput

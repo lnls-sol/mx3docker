@@ -8,8 +8,8 @@ conda activate mxcube
 
 cd /opt/mxcube3
 
-#npm install
-npm start&
+#npm install --legacy-peer-deps 
+npm start &
 redis-server&
 
 # MOCK

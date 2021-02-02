@@ -15,6 +15,6 @@ conda activate mxcube
 
 cd /opt/mxcube3
 
-npm install
+npm install --legacy-peer-deps
 
 docker-entrypoint.sh 2>&1 | tee /opt/out.txt
