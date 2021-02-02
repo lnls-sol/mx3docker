@@ -60,6 +60,7 @@ EXPOSE 8090 8081 5901
 RUN conda install -n mxcube -c conda-forge pyepics
 RUN conda install -n mxcube ipython
 
+
 # Set max bytes for Epics caget/caput
 RUN echo "export EPICS_CA_MAX_ARRAY_BYTES=20000000" >> /etc/bash.bashrc
 
@@ -96,3 +97,14 @@ RUN /root/config_scan_utils.sh
 
 # Set timezone
 RUN ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+
+# ODBC (access to users portal db)
+# See docs at:
+#https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15#debian17
+RUN apt install unixodbc unixodbc-dev -y
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+RUN apt update
+RUN ACCEPT_EULA=Y apt-get install msodbcsql17
+RUN conda install -y -n mxcube pyodbc
+
