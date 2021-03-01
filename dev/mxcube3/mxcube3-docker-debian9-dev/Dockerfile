@@ -79,10 +79,11 @@ RUN mkdir /usr/local/sol-nfs
 RUN mkdir /usr/local/setup-bl
 RUN mkdir /usr/local/sol
 
-RUN chmod +w /etc/fstab
-RUN sh -c "echo '10.10.10.13:/usr/local/sol-nfs   /usr/local/sol-nfs     nfs defaults 0 0' >> /etc/fstab"
-RUN sh -c "echo '10.10.10.13:/usr/local/setup-bl   /usr/local/setup-bl     nfs defaults 0 0' >> /etc/fstab"
-RUN sh -c "echo '10.10.10.13:/usr/local/setup-bl/SOL/docker-gui/sol /usr/local/sol     nfs defaults 0 0' >> /etc/fstab"
+# Make this in the host instead and mount to the container with -v
+#RUN chmod +w /etc/fstab
+#RUN sh -c "echo '10.10.10.13:/usr/local/sol-nfs   /usr/local/sol-nfs     nfs defaults 0 0' >> /etc/fstab"
+#RUN sh -c "echo '10.10.10.13:/usr/local/setup-bl   /usr/local/setup-bl     nfs defaults 0 0' >> /etc/fstab"
+#RUN sh -c "echo '10.10.10.13:/usr/local/setup-bl/SOL/docker-gui/sol /usr/local/sol     nfs defaults 0 0' >> /etc/fstab"
 
 # LNLS scan scripts
 
