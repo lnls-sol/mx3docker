@@ -3,12 +3,12 @@ echo "Build and run mxcube3 from the start"
 echo " "
 echo "Remove previous mxcube3-dev-lnls container"
 echo " "
-podman rm mxcube3-dev-lnls
+docker rm mxcube3-dev-lnls
 
 echo " "
 echo "Build mxcube3-dev-lnls"
 echo " "
-podman build --network=host -t mxcube3-dev-lnls .
+docker build --no-cache --network=host -t mxcube3-dev-lnls .
 
 # The following lines download mxcube3 source in the current folder (if not
 # present locally yet).
@@ -25,7 +25,7 @@ else
 fi
 
 
-podman run -p 5901:5901 -p 8090:8090 --network=host -dt \
+docker run -p 5901:5901 -p 8090:8090 --network=host -dt \
 -v ${PWD}/mxcube3:/opt/mxcube3/ \
 -v ${PWD}/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh:rw \
 -v /ibira/sirius/beamlines/manaca/:/ibira/sirius/beamlines/manaca/ \
@@ -40,5 +40,5 @@ echo " "
 echo " "
 echo "Done! Now enter container and start mxcube server with:"
 echo " "
-echo "\$ podman exec -it mxcube3-dev-lnls bash"
+echo "\$ docker exec -it mxcube3-dev-lnls bash"
 echo "\$ start-mxcube-server.sh"
