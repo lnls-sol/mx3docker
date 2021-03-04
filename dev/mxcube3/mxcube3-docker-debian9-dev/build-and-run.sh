@@ -3,7 +3,7 @@ echo "Build and run mxcube3 from the start"
 echo " "
 echo "Remove previous mxcube3-dev-lnls container"
 echo " "
-podman rm -f mxcube3-dev-lnls
+podman rm mxcube3-dev-lnls
 
 echo " "
 echo "Build mxcube3-dev-lnls"
