@@ -42,7 +42,7 @@ WORKDIR /opt
 COPY debian-install.sh /opt/debian-install.sh
 RUN cd /opt && chmod +x debian-install.sh
 #RUN . /opt/debian-install.sh && install_debian_deps
-RUN ls && cd /opt && wget https://raw.githubusercontent.com/lnls-sol/mxcube3/lnls/conda-environment.yml
+RUN ls && cd /opt && wget https://raw.githubusercontent.com/lnls-sol/mxcube3/lnls-master-2021/conda-environment.yml
 RUN . /opt/debian-install.sh && install_conda_req
 #RUN . /opt/debian-install.sh && install_python_deps
 #RUN . /opt/debian-install.sh && install_node
@@ -75,9 +75,9 @@ RUN echo "export PYTHONPATH=\$PYTHONPATH:/opt/mxcube3/mxcube3/" >> /etc/bash.bas
 
 RUN apt-get install nfs-common -y
 
-RUN mkdir /usr/local/sol-nfs
-RUN mkdir /usr/local/setup-bl
-RUN mkdir /usr/local/sol
+#RUN mkdir /usr/local/sol-nfs
+#RUN mkdir /usr/local/setup-bl
+#RUN mkdir /usr/local/sol
 
 # Make this in the host instead and mount to the container with -v
 #RUN chmod +w /etc/fstab
