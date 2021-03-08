@@ -11,7 +11,7 @@ mxcube_source() {
 }
 
 mxcube_branch() {
-  echo "lnls"
+  echo "lnls-master-2021"
 }
 
 mxcube_install_dir() {
